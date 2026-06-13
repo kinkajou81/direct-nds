@@ -2,7 +2,7 @@
 #include "../stdint.hpp"
 
 static constexpr auto clamp = [](uint8_t x, uint8_t lbound, uint8_t rbound) {
-	uint y = (x>=lbound)?x:lbound;
+	uint8_t y = (x>=lbound)?x:lbound;
 	y = (y<=rbound)?y:rbound;
 	return y;
 }

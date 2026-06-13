@@ -10,7 +10,10 @@ typedef union {
 	uint16_t val;
 } text_tile;
 
-typedef uint8_t rot_scale_tile;
+typedef union {
+	uint8_t data;
+	uint8_t val;
+} rot_scale_tile;
 
 typedef union {
 	struct data {
@@ -22,4 +25,7 @@ typedef union {
 	uint16_t val;
 } bg_15bit_color;
 
-typedef uint8_t bg_8bit_col;
+typedef union {
+	uint8_t data;
+	uint8_t val;
+} bg_8bit_color;
