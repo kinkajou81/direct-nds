@@ -45,6 +45,8 @@ typedef union { // WORD
 	};
 	uint16_t val;
 } EXMEMCNT;
+#define REG_EXMEMCNT 0x4000204;
+#define REG_EXMEMSTAT 0x4000204;
 typedef EXMEMCNT EXMEMSTAT;
 #define MEM_ARM9 0
 #define MEM_ARM7 1
@@ -55,4 +57,6 @@ typedef union { // HWORD
 	uint8_t data;
 	uint8_t val;
 } WRAMCNT;
+#define REG_WRAMCNT 0x4000247
+#define REG_WRAMSTAT 0x4000241
 typedef WRAMWNT WRAMSTAT;

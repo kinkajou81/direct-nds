@@ -1,4 +1,5 @@
 #pragma once
+#include "../stdint.hpp"
 
 static constexpr auto clampf = [](float x, float lbound, float rbound) {
 	float y = (x>=lbound)?x:lbound;
@@ -38,13 +39,10 @@ constexpr uint8_t calc_pan(float panning) {
 // 40004x0h - NDS7 - SOUNDxCNT - Sound Channel X Control Register (R/W)
 typedef union {
 	struct data {
-		uint8_t volume_mul : 7;
-		uint8_t none : 1;
-		uint8_t volume_div : 2;
-		uint8_t none2 : 5;
+		uint8_t volume_mul : 8; // last bit unused
+		uint8_t volume_div : 7; // last 5 bits unused
 		bool hold : 1;
-		uint8_t pan : 7;
-		uint8_t none3 : 1;
+		uint8_t pan : 8; // last bit unused
 		uint8_t wave_duty : 3;
 		uint8_t repeat_mode : 2;
 		uint8_t format : 2;

@@ -1,4 +1,5 @@
 #pragma once
+#include "../stdint.hpp"
 
 // background rotations/scaling parameters A-D
 consteval bg_transforms bg_rot_scale_a(float xmag, float angle) {
@@ -279,12 +280,10 @@ typedef union {
 	struct data {
 		uint8_t win0_bg_bits : 4;
 		bool win0_obj_bits : 1;
-		bool win0_special : 1;
-		uint8_t none1 : 2;
+		bool win0_special : 3; // last 2 bits unused
 		uint8_t win1_bg_bits : 4;
 		bool win1_obj_bits : 1;
-		bool win1_special : 1;
-		uint8_t none2 : 2;
+		bool win1_special : 3; // last 2 bits unused
 	};
 	uint16_t val;
 } WININ;
@@ -296,12 +295,10 @@ typedef union {
 	struct data {
 		uint8_t win_out_bg_bits : 4;
 		bool win_out_obj_bits : 1;
-		bool win_out_special : 1;
-		uint8_t none1 : 2;
+		bool win_out_special : 3; // last 2 bits unused
 		uint8_t win_obj_bg_bits : 4;
 		bool win_obj_obj_bits : 1;
-		bool win_obj_special : 1;
-		uint8_t none2 : 2;
+		bool win_obj_special : 3; // last 2 bits unused
 	};
 	uint16_t val;
 } WINOUT;
@@ -368,8 +365,7 @@ typedef union {
 // 400006Ch - NDS9 - MASTER_BRIGHT - Master Brightness Up/Down
 typedef union {
 	struct data {
-		uint8_t brightness_factor : 5;
-		uint16_t none : 9;
+		uint16_t brightness_factor : 14; // last 9 bits unused
 		uint8_t mode : 2;
 	};
 	uint16_t val;
